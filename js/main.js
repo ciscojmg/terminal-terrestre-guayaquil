@@ -215,6 +215,42 @@
     });
   }
 
+  function initFAQ() {
+    const container = document.querySelector('[data-faq-container]');
+    if (!container) return;
+
+    const buttons = Array.from(container.querySelectorAll('[data-faq-toggle]'));
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-faq-toggle');
+        if (!targetId) return;
+        const panel = document.getElementById(targetId);
+        if (!panel) return;
+
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        // Cerrar todos
+        buttons.forEach((b) => {
+          const id = b.getAttribute('data-faq-toggle');
+          const p = id ? document.getElementById(id) : null;
+          b.setAttribute('aria-expanded', 'false');
+          const icon = b.querySelector('[data-faq-icon]');
+          if (icon) icon.style.transform = 'rotate(0deg)';
+          if (p) p.classList.add('hidden');
+        });
+
+        // Abrir el seleccionado si antes estaba cerrado
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          const icon = btn.querySelector('[data-faq-icon]');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+          panel.classList.remove('hidden');
+        }
+      });
+    });
+  }
+
   function initSearch() {
     elements.searchInput?.addEventListener('input', () => {
       actualizarVista();
@@ -225,6 +261,7 @@
     await loadCooperativas();
     await loadContribuidores();
     initDestinos();
+    initFAQ();
     initSearch();
     actualizarVista();
   }

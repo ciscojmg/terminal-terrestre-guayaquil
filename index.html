@@ -7,11 +7,11 @@
   <title>Terminal Terrestre Guayaquil - Cooperativas, Horarios y Rutas</title>
   <meta name="description" content="Encuentra cooperativas, horarios, boleterías y rutas del Terminal Terrestre de Guayaquil. Información práctica para viajeros.">
   <meta name="keywords" content="terminal terrestre Guayaquil, cooperativas Guayaquil, horarios buses, boleterías terminal, rutas Guayaquil">
-  <link rel="canonical" href="https://terminal-terrestre-guayaquil.example.com/">
+  <link rel="canonical" href="https://ciscojmg.github.io/terminal-terrestre-guayaquil/">
   <meta property="og:title" content="Terminal Terrestre Guayaquil - Cooperativas, Horarios y Rutas">
   <meta property="og:description" content="Encuentra cooperativas, horarios y rutas del Terminal Terrestre de Guayaquil.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://terminal-terrestre-guayaquil.example.com/">
+  <meta property="og:url" content="https://ciscojmg.github.io/terminal-terrestre-guayaquil/">
   <meta property="og:locale" content="es_EC">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"/>
@@ -59,7 +59,7 @@
     "name": "Terminal Terrestre Guayaquil",
     "description": "Información de cooperativas, horarios y rutas del Terminal Terrestre de Guayaquil.",
     "address": { "@type": "PostalAddress", "addressLocality": "Guayaquil", "addressRegion": "Guayas", "addressCountry": "EC" },
-    "url": "https://terminal-terrestre-guayaquil.example.com/"
+    "url": "https://ciscojmg.github.io/terminal-terrestre-guayaquil/"
   }
   </script>
   <style>
@@ -69,6 +69,38 @@
     .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
     .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   </style>
+  <script type="application/ld+json">
+  {
+    "": "https://schema.org",
+    "": "FAQPage",
+    "mainEntity": [
+      {
+        "": "Question",
+        "name": "¿Dónde queda el Terminal Terrestre de Guayaquil?",
+        "acceptedAnswer": {
+          "": "Answer",
+          "text": "El Terminal Terrestre de Guayaquil está ubicado al norte de la ciudad, junto al Puente de la Unidad Nacional y cerca del aeropuerto José Joaquín de Olmedo."
+        }
+      },
+      {
+        "": "Question",
+        "name": "¿Cómo encuentro la boletería de una cooperativa?",
+        "acceptedAnswer": {
+          "": "Answer",
+          "text": "En este sitio puedes buscar la cooperativa y ver su número de boletería, piso y una referencia para ubicarla dentro del terminal."
+        }
+      },
+      {
+        "": "Question",
+        "name": "¿Los horarios publicados son oficiales?",
+        "acceptedAnswer": {
+          "": "Answer",
+          "text": "Los horarios son referenciales y pueden cambiar sin previo aviso. Siempre es recomendable confirmar directamente en la boletería de la cooperativa."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
   <!-- Header -->
@@ -105,7 +137,7 @@
     </section>
 
     <!-- Cooperativas Grid -->
-    <section class="px-4 py-6">
+    <section class="px-4 py-4">
       <h2 class="text-xl font-bold tracking-tight mb-4">Explorar Cooperativas</h2>
       <div id="cooperativas-grid" class="grid grid-cols-2 gap-4">
         <!-- Llenado por JavaScript -->
@@ -117,12 +149,101 @@
       </a>
     </section>
 
+    <!-- Acerca del Terminal -->
+    <section class="px-4 py-4">
+      <div class="bg-white dark:bg-slate-900/70 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sm:p-5">
+        <h2 class="text-xl font-bold tracking-tight mb-3">Acerca del Terminal Terrestre de Guayaquil</h2>
+        <p class="text-sm text-slate-700 dark:text-slate-300 mb-3">
+          El Terminal Terrestre de Guayaquil es el principal punto de salida y llegada de buses interprovinciales
+          y regionales de la ciudad. Desde aquí salen cooperativas hacia destinos de la Costa, Sierra y Oriente del Ecuador.
+        </p>
+        <p class="text-sm text-slate-700 dark:text-slate-300 mb-3">
+          Este sitio no es la página oficial del terminal: es un proyecto abierto de la comunidad que busca
+          organizar en un solo lugar la información básica que la mayoría de viajeros necesita:
+          número de boletería, ubicación dentro del terminal, horarios y rutas principales.
+        </p>
+        <p class="text-sm text-slate-700 dark:text-slate-300">
+          Toda la información se mantiene a través de contribuciones en GitHub. Si encuentras datos desactualizados
+          o quieres agregar una nueva cooperativa, puedes hacerlo siguiendo la guía de contribución.
+        </p>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="px-4 py-4 pb-8">
+      <div class="bg-white dark:bg-slate-900/70 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sm:p-5" data-faq-container>
+        <h2 class="text-xl font-bold tracking-tight mb-4">Preguntas frecuentes</h2>
+        <!-- FAQ 1 -->
+        <button
+          type="button"
+          class="w-full flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4 text-left"
+          data-faq-toggle="faq-ubicacion"
+          aria-expanded="true"
+        >
+          <span class="font-semibold text-slate-900 dark:text-slate-50">
+            ¿Dónde queda el Terminal Terrestre de Guayaquil?
+          </span>
+          <span class="material-symbols-outlined text-slate-500 text-xl transition-transform" data-faq-icon>
+            expand_more
+          </span>
+        </button>
+        <div id="faq-ubicacion" class="px-4 pb-4 sm:px-5 sm:pb-5 text-sm text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800">
+          El terminal está ubicado al norte de Guayaquil, junto al Puente de la Unidad Nacional y cerca del
+          aeropuerto José Joaquín de Olmedo. Puedes ver la ubicación exacta en el botón de Google Maps
+          dentro de esta página.
+        </div>
+
+        <!-- FAQ 2 -->
+        <button
+          type="button"
+          class="w-full flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4 text-left"
+          data-faq-toggle="faq-boleteria"
+          aria-expanded="false"
+        >
+          <span class="font-semibold text-slate-900 dark:text-slate-50">
+            ¿Cómo encuentro la boletería de una cooperativa?
+          </span>
+          <span class="material-symbols-outlined text-slate-500 text-xl transition-transform" data-faq-icon>
+            expand_more
+          </span>
+        </button>
+        <div id="faq-boleteria" class="px-4 pb-4 sm:px-5 sm:pb-5 text-sm text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 hidden">
+          En la sección de cooperativas verás el número de boletería de cada empresa. En el detalle de la
+          cooperativa encontrarás además el piso y una referencia rápida para ubicarla dentro del terminal.
+        </div>
+
+        <!-- FAQ 3 -->
+        <button
+          type="button"
+          class="w-full flex items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4 text-left"
+          data-faq-toggle="faq-horarios"
+          aria-expanded="false"
+        >
+          <span class="font-semibold text-slate-900 dark:text-slate-50">
+            ¿La información de horarios es oficial?
+          </span>
+          <span class="material-symbols-outlined text-slate-500 text-xl transition-transform" data-faq-icon>
+            expand_more
+          </span>
+        </button>
+        <div id="faq-horarios" class="px-4 pb-4 sm:px-5 sm:pb-5 text-sm text-slate-700 dark:text-slate-300 hidden">
+          Los horarios son referenciales y pueden cambiar sin previo aviso. Siempre recomendamos llegar con
+          anticipación y confirmar en la boletería de la cooperativa antes de viajar.
+        </div>
+      </div>
+    </section>
+
     <!-- Contribuidores -->
-    <section class="px-4 py-6 pb-12">
-      <h2 class="text-xl font-bold tracking-tight mb-2">Contribuidores</h2>
-      <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Personas que han contribuido a este proyecto. <a href="contribuir.html" class="text-primary font-medium hover:underline">¿Cómo contribuir?</a></p>
-      <div id="contribuidores-grid" class="flex flex-wrap gap-3">
-        <!-- Llenado por JavaScript -->
+    <section class="px-4 py-4 pb-8">
+      <div class="bg-white dark:bg-slate-900/70 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-4 sm:p-5">
+        <h2 class="text-xl font-bold tracking-tight mb-2">Contribuidores</h2>
+        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+          Personas que han contribuido a este proyecto.
+          <a href="contribuir.html" class="text-primary font-medium hover:underline">¿Cómo contribuir?</a>
+        </p>
+        <div id="contribuidores-grid" class="flex flex-wrap gap-3">
+          <!-- Llenado por JavaScript -->
+        </div>
       </div>
     </section>
   </main>

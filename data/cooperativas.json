@@ -1,0 +1,252 @@
+{
+  "cooperativas": [
+    {
+      "id": "libertad-peninsular",
+      "nombre": "Libertad Peninsular",
+      "boleteria": 45,
+      "imagen": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO PREMIUM",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 45,
+        "piso": "Planta Baja",
+        "referencia": "Junto a la puerta de llegada de pasajeros de la Costa."
+      },
+      "servicios": ["Wi-Fi Gratis", "Aire Acond.", "Peliculas", "Reclinables"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Salinas",
+        "tipo": "Directo",
+        "pasaje": 5.5,
+        "duracion": "2h 45m aprox.",
+        "distancia": "145 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada hora desde Guayaquil",
+        "salidas": ["05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #45",
+        "telefono": "(04) 213-0456 / 099-123-4567",
+        "web": "https://www.libertadpeninsular.com.ec"
+      }
+    },
+    {
+      "id": "transportes-ecuador",
+      "nombre": "Transportes Ecuador",
+      "boleteria": 45,
+      "imagen": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO EJECUTIVO",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 45,
+        "piso": "Planta Baja",
+        "referencia": "Frente a la zona de embarque."
+      },
+      "servicios": ["Wi-Fi Gratis", "Aire Acond.", "Reclinables", "Enchufes"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Quito",
+        "tipo": "Directo",
+        "pasaje": 12.0,
+        "duracion": "8h aprox.",
+        "distancia": "420 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada 2 horas",
+        "salidas": ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #45",
+        "telefono": "(04) 214-5678 / 098-765-4321",
+        "web": "https://www.transportesecuador.com.ec"
+      }
+    },
+    {
+      "id": "coop-libertad",
+      "nombre": "Coop. Libertad",
+      "boleteria": 12,
+      "imagen": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO ECONOMICO",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 12,
+        "piso": "Planta Baja",
+        "referencia": "Esquina noroeste, cerca de la cafetería."
+      },
+      "servicios": ["Aire Acond.", "Reclinables"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Manta",
+        "tipo": "Directo",
+        "pasaje": 6.0,
+        "duracion": "3h 30m aprox.",
+        "distancia": "195 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada 2 horas hacia la Costa",
+        "salidas": ["05:30", "07:30", "09:30", "11:30", "13:30", "15:30", "17:30", "19:30"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #12",
+        "telefono": "(04) 212-3456 / 098-234-5678",
+        "web": "https://www.cooplibertad.com.ec"
+      }
+    },
+    {
+      "id": "cica",
+      "nombre": "CICA",
+      "boleteria": 88,
+      "imagen": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO EJECUTIVO",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 88,
+        "piso": "Planta Baja",
+        "referencia": "Zona de buses interprovinciales, pasillo central."
+      },
+      "servicios": ["Wi-Fi Gratis", "Aire Acond.", "Peliculas", "Reclinables", "Enchufes"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Cuenca",
+        "tipo": "Directo",
+        "pasaje": 9.0,
+        "duracion": "4h 15m aprox.",
+        "distancia": "230 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada hora y media",
+        "salidas": ["05:00", "06:30", "08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00", "18:30", "20:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #88",
+        "telefono": "(04) 216-7890 / 099-345-6789",
+        "web": "https://www.cica.com.ec"
+      }
+    },
+    {
+      "id": "reina-del-camino",
+      "nombre": "Reina del Camino",
+      "boleteria": 21,
+      "imagen": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO ECONOMICO",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 21,
+        "piso": "Planta Baja",
+        "referencia": "Cerca de la salida norte."
+      },
+      "servicios": ["Aire Acond.", "Reclinables"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Cuenca",
+        "tipo": "Directo",
+        "pasaje": 8.5,
+        "duracion": "4h aprox.",
+        "distancia": "230 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada 3 horas",
+        "salidas": ["05:00", "08:00", "11:00", "14:00", "17:00", "20:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #21",
+        "telefono": "(04) 215-1234 / 099-111-2222",
+        "web": "https://www.reinadelcamino.com.ec"
+      }
+    },
+    {
+      "id": "panamericana",
+      "nombre": "Panamericana",
+      "boleteria": 5,
+      "imagen": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO PREMIUM",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 5,
+        "piso": "Planta Baja",
+        "referencia": "Entrada principal, primera boletería a la izquierda."
+      },
+      "servicios": ["Wi-Fi Gratis", "Aire Acond.", "Peliculas", "Reclinables", "Catering"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Quito",
+        "tipo": "Directo",
+        "pasaje": 14.0,
+        "duracion": "8h aprox.",
+        "distancia": "420 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada hora en horario diurno",
+        "salidas": ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #05",
+        "telefono": "(04) 210-1111 / 099-888-9999",
+        "web": "https://www.panamericana.ec"
+      }
+    },
+    {
+      "id": "flota-imbabura",
+      "nombre": "Flota Imbabura",
+      "boleteria": 33,
+      "imagen": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO EJECUTIVO",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 33,
+        "piso": "Planta Baja",
+        "referencia": "Zona Sierra, junto a la puerta de embarque 4."
+      },
+      "servicios": ["Wi-Fi Gratis", "Aire Acond.", "Reclinables", "Enchufes"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Ibarra",
+        "tipo": "Directo",
+        "pasaje": 11.5,
+        "duracion": "7h aprox.",
+        "distancia": "380 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada 4 horas",
+        "salidas": ["06:00", "10:00", "14:00", "18:00", "22:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #33",
+        "telefono": "(04) 217-2222 / 098-777-6666",
+        "web": "https://www.flotaimbabura.com.ec"
+      }
+    },
+    {
+      "id": "expreso-samborondon",
+      "nombre": "Expreso Samborondón",
+      "boleteria": 18,
+      "imagen": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop",
+      "tipoServicio": "SERVICIO ECONOMICO",
+      "terminal": "principal",
+      "ubicacion": {
+        "boleteria": 18,
+        "piso": "Planta Baja",
+        "referencia": "Pasillo de buses locales y regionales."
+      },
+      "servicios": ["Aire Acond.", "Reclinables"],
+      "rutaPrincipal": {
+        "origen": "Guayaquil",
+        "destino": "Playas",
+        "tipo": "Directo",
+        "pasaje": 3.5,
+        "duracion": "1h 15m aprox.",
+        "distancia": "95 km"
+      },
+      "horarios": {
+        "descripcion": "Salidas cada 30 minutos",
+        "salidas": ["05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00"]
+      },
+      "contacto": {
+        "oficina": "Terminal Terrestre de Guayaquil, Planta Baja, Boletería #18",
+        "telefono": "(04) 218-3333 / 099-555-4444",
+        "web": "https://www.expresosamborondon.com.ec"
+      }
+    }
+  ]
+}

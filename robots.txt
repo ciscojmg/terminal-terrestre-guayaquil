@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://terminal-terrestre-guayaquil.example.com/sitemap.xml
+Sitemap: https://ciscojmg.github.io/terminal-terrestre-guayaquil/sitemap.xml

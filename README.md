@@ -1,32 +1,38 @@
-# Terminal Terrestre Guayaquil
+# 🚌 Terminal Terrestre Guayaquil
 
 Sitio web con información práctica del Terminal Terrestre de Guayaquil: cooperativas, horarios, boleterías y rutas. Pensado para viajeros que consultan desde el celular.
 
-## Descripción del proyecto
+## 📋 Descripción del proyecto
 
 La página oficial del terminal no ofrece la información básica de forma clara. Este proyecto busca resolver eso con un sitio simple y enfocado en lo que necesitas:
 
-- **Cooperativas:** Listado de todas las cooperativas con su número de boletería
-- **Destinos:** Filtro por destino para ver qué cooperativas van a cada ciudad
-- **Detalle:** Información completa de cada cooperativa (ubicación, servicios, horarios, contacto)
-- **Ubicación:** Enlace directo a Google Maps del terminal
+- 🏢 **Cooperativas:** Listado de todas las cooperativas con su número de boletería
+- 🗺️ **Destinos:** Filtro por destino para ver qué cooperativas van a cada ciudad
+- 📄 **Detalle:** Información completa de cada cooperativa (ubicación, servicios, horarios, contacto)
+- 📍 **Ubicación:** Enlace directo a Google Maps del terminal
 
 Los datos se alimentan desde archivos JSON en el repositorio y se actualizan mediante **pull requests** de la comunidad.
 
-## Cómo ejecutar el proyecto
+## 🚀 Cómo ejecutar el proyecto
 
-Es un sitio estático (HTML, CSS, JavaScript). Puedes abrirlo de dos formas:
+Es un sitio estático (HTML, CSS, JavaScript). Puedes abrirlo de varias formas:
 
-**Opción 1: Servidor local**
+**Opción 1: Extensión Live Preview (recomendado)**
+
+<img src="assets/live-preview-icon.png" alt="Live Preview" width="80"/>
+
+Puedes utilizar la extensión [**Live Preview**](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-preview) de Microsoft para VS Code. Inicia un servidor local en tu workspace y previsualiza el proyecto con actualizaciones en tiempo real.
+
+**Opción 2: Servidor local con Python** 🐍
 ```bash
 python3 -m http.server 3000
 ```
 Luego abre `http://localhost:3000` en el navegador.
 
-**Opción 2: Abrir directamente**
+**Opción 3: Abrir directamente** 📂
 Abre `index.html` en el navegador. Algunas funciones (como cargar el JSON) pueden requerir un servidor por restricciones de CORS.
 
-## Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```
 ├── index.html          # Página principal
@@ -41,9 +47,9 @@ Abre `index.html` en el navegador. Algunas funciones (como cargar el JSON) puede
 └── CONTRIBUTING.md     # Guía detallada de contribución
 ```
 
-## Cómo contribuir
+## 🤝 Cómo contribuir
 
-### 1. Agregar una cooperativa
+### 1. ➕ Agregar una cooperativa
 
 1. Haz **fork** del repositorio
 2. Edita el archivo `data/cooperativas.json`
@@ -86,23 +92,23 @@ Abre `index.html` en el navegador. Algunas funciones (como cargar el JSON) puede
 4. Si agregas una cooperativa nueva, añade su URL en `sitemap.xml`
 5. Envía un **pull request**
 
-### 2. Aparecer como contribuidor
+### 2. 👤 Aparecer como contribuidor
 
 La lista de contribuidores se actualiza **automáticamente** cuando tu PR es aceptado. No necesitas editar nada manualmente; tu avatar aparecerá en la sección de contribuidores.
 
-### 3. Destinos populares
+### 3. 🗺️ Destinos populares
 
 Los destinos se extraen automáticamente de las cooperativas. Cada destino único en `rutaPrincipal.destino` se muestra en la pantalla. No hay que editar archivos de destinos por separado.
 
 Para más detalles, consulta [CONTRIBUTING.md](CONTRIBUTING.md) o la página [contribuir.html](contribuir.html) en el sitio.
 
-## Tecnologías
+## ⚙️ Tecnologías
 
-- HTML, CSS, JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) (CDN)
-- [Material Symbols](https://fonts.google.com/icons) para iconos
-- Datos en JSON estático
+- 📄 HTML, CSS, JavaScript
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) (CDN)
+- 🔣 [Material Symbols](https://fonts.google.com/icons) para iconos
+- 📦 Datos en JSON estático
 
-## Licencia
+## 📜 Licencia
 
 Este proyecto está abierto a contribuciones de la comunidad.

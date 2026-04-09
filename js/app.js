@@ -22,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentDestinationFilter = null;
   let currentSearchQuery = '';
 
-  const PREFERRED_IMAGE = 'assets/bus-placeholder.png';
+  function getPreferredImage() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'light';
+    return theme === 'dark' ? 'assets/bus-placeholder-dark.png' : 'assets/bus-placeholder-light.png';
+  }
 
   const ICON_MAP = {
     'playas': 'beach_access',
@@ -66,6 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
       themeToggle.querySelector('.dark-icon').classList.remove('hidden');
       themeToggle.querySelector('.light-icon').classList.add('hidden');
     }
+    
+    // Update images based on new theme
+    document.querySelectorAll('.card-img').forEach(img => img.src = getPreferredImage());
+    const panelImg = document.querySelector('.panel-banner img');
+    if (panelImg) panelImg.src = getPreferredImage();
+
     localStorage.setItem('theme', theme);
   }
 
@@ -200,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="coop-card glass-card" data-index="${cooperativasData.indexOf(c)}">
             <div class="card-img-wrapper">
               ${c.boleteria ? `<div class="badge">Boletería ${c.boleteria}</div>` : ''}
-              <img src="${PREFERRED_IMAGE}" class="card-img" alt="${c.nombre}" loading="lazy">
+              <img src="${getPreferredImage()}" class="card-img" alt="${c.nombre}" loading="lazy">
               <div class="card-overlay"></div>
               <div class="card-content">
                 <h3 class="card-title">${c.nombre}</h3>
@@ -237,6 +246,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function openPanel(coop) {
     // Populate
     panelCoopName.textContent = coop.nombre;
+    
+    // Banner Image
+    const panelImg = document.querySelector('.panel-banner img');
+    if (panelImg) panelImg.src = getPreferredImage();
+    
     if(coop.boleteria) {
       panelBoleteria.textContent = `Boletería #${coop.boleteria}`;
       panelBoleteria.classList.remove('hidden');

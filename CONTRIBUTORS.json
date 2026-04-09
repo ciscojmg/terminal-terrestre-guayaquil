@@ -4,6 +4,11 @@
       "login": "ciscojmg",
       "avatar_url": "https://avatars.githubusercontent.com/u/28712436?v=4",
       "html_url": "https://github.com/ciscojmg"
+    },
+    {
+      "login": "github-actions[bot]",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "html_url": "https://github.com/apps/github-actions"
     }
   ]
 }

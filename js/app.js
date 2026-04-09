@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClearFilters = document.getElementById('btn-clear-filters');
   const noResults = document.getElementById('no-results');
   const btnOpenDests = document.getElementById('btn-open-dests');
+  const paginationControls = document.getElementById('pagination-controls');
   
   // Dest Panel Elements
   const destPanel = document.getElementById('dest-panel');
@@ -26,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let uniqueDestinations = [];
   let currentDestinationFilter = null;
   let currentSearchQuery = '';
+  
+  let currentPage = 1;
+  const itemsPerPage = 12;
+  let currentFiltered = [];
 
   function getPreferredImage() {
     const theme = document.documentElement.getAttribute('data-theme') || 'light';
@@ -214,15 +219,32 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
-    if (filtered.length === 0) {
+    renderPage(filtered, 1);
+  }
+
+  function renderPage(filteredArray, targetPage=1) {
+    currentFiltered = filteredArray;
+    currentPage = targetPage;
+    const totalPages = Math.ceil(currentFiltered.length / itemsPerPage);
+    if(currentPage < 1) currentPage = 1;
+    if(currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+
+    if (currentFiltered.length === 0) {
       coopsGrid.innerHTML = '';
       noResults.classList.remove('hidden');
+      paginationControls.innerHTML = '';
     } else {
       noResults.classList.add('hidden');
-      coopsGrid.innerHTML = filtered.map((c, index) => {
+      
+      const start = (currentPage - 1) * itemsPerPage;
+      const paginatedItems = currentFiltered.slice(start, start + itemsPerPage);
+      
+      coopsGrid.innerHTML = paginatedItems.map((c) => {
         const destString = c.destinos.length > 0 ? c.destinos.slice(0,3).join(' • ') + (c.destinos.length > 3 ? '...' : '') : 'Múltiples destinos';
+        // Need global index for opening the panel correctly
+        const globalIndex = cooperativasData.indexOf(c);
         return `
-          <div class="coop-card glass-card" data-index="${cooperativasData.indexOf(c)}">
+          <div class="coop-card glass-card" data-index="${globalIndex}">
             <div class="card-img-wrapper">
               ${c.boleteria ? `<div class="badge">Boletería ${c.boleteria}</div>` : ''}
               <img src="${getPreferredImage()}" class="card-img" alt="${c.nombre}" loading="lazy">
@@ -241,7 +263,26 @@ document.addEventListener('DOMContentLoaded', () => {
           openPanel(cooperativasData[parseInt(card.dataset.index)]);
         });
       });
+      
+      renderPaginationControls(totalPages);
     }
+  }
+
+  function renderPaginationControls(totalPages) {
+    if (totalPages <= 1) {
+      paginationControls.innerHTML = '';
+      return;
+    }
+    paginationControls.innerHTML = `
+      <button class="btn-page" id="btn-prev" ${currentPage <= 1 ? 'disabled' : ''}>Anterior</button>
+      <span class="page-info">Página ${currentPage} de ${totalPages}</span>
+      <button class="btn-page" id="btn-next" ${currentPage >= totalPages ? 'disabled' : ''}>Siguiente</button>
+    `;
+    
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    if (btnPrev) btnPrev.addEventListener('click', () => renderPage(currentFiltered, currentPage - 1));
+    if (btnNext) btnNext.addEventListener('click', () => renderPage(currentFiltered, currentPage + 1));
   }
 
   // --- Events ---

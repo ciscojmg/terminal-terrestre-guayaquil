@@ -190,15 +190,52 @@ a:hover { color: var(--accent-hover); }
 }
 .btn-text:hover { text-decoration: underline; }
 
-/* Destinations Filter */
-.destinations-container {
-  display: flex;
+/* Destinations Filter (Old/Secondary) */
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 16px;
-  overflow-x: auto;
-  padding: 4px 4px 16px 4px;
 }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Popular Destinations (Hero Cards) */
+.dest-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .dest-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.dest-hero-card {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 0;
+}
+.dest-hero-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+.dest-hero-card.active { border: 2px solid var(--accent); }
+.dest-hero-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.dest-hero-card:hover img { transform: scale(1.05); }
+.dest-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.dest-hero-overlay h3 { color: #fff; font-size: 1.5rem; margin: 0; z-index: 2;}
 
 .dest-card {
   flex: 0 0 auto;

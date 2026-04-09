@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const coopsGrid = document.getElementById('cooperativas-grid');
   const btnClearFilters = document.getElementById('btn-clear-filters');
   const noResults = document.getElementById('no-results');
+  const btnOpenDests = document.getElementById('btn-open-dests');
   
+  // Dest Panel Elements
+  const destPanel = document.getElementById('dest-panel');
+  const btnCloseDestPanel = document.getElementById('btn-close-dest-panel');
+
   // Panel Elements
   const sidePanel = document.getElementById('side-panel');
   const panelOverlay = document.getElementById('panel-overlay');
@@ -150,33 +155,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     uniqueDestinations = Object.values(destCount)
       .sort((a,b) => b.count - a.count)
-      .map(v => v.name)
-      .slice(0, 15); // Top 15 destinations
+      .map(v => v.name);
   }
 
   // --- Render ---
   function renderDestinations() {
-    destinationsGrid.innerHTML = uniqueDestinations.map(dest => `
+    const popularNames = ['quito', 'cuenca', 'ambato'];
+    const secondaryDests = uniqueDestinations.filter(d => !popularNames.includes(d.toLowerCase()));
+    
+    // Render secondary panel
+    destinationsGrid.innerHTML = secondaryDests.map(dest => `
       <button class="dest-card glass-card" data-dest="${dest}">
         <div class="dest-icon"><span class="material-symbols-rounded">${getDestIcon(dest)}</span></div>
         <span class="dest-name">${dest}</span>
       </button>
     `).join('');
 
-    // Attach events
-    destinationsGrid.querySelectorAll('.dest-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const d = card.dataset.dest;
-        if(currentDestinationFilter === d) {
-          currentDestinationFilter = null;
-          card.classList.remove('active');
-        } else {
-          destinationsGrid.querySelectorAll('.dest-card').forEach(c => c.classList.remove('active'));
-          currentDestinationFilter = d;
-          card.classList.add('active');
-        }
-        filterAndRender();
-      });
+    // Attach events to secondary
+    destinationsGrid.querySelectorAll('.dest-card').forEach(card => bindDestCardEvent(card));
+    
+    // Attach events to Hero popular cards
+    document.querySelectorAll('.dest-hero-card').forEach(card => bindDestCardEvent(card));
+  }
+
+  function bindDestCardEvent(card) {
+    card.addEventListener('click', () => {
+      const d = card.dataset.dest;
+      if(currentDestinationFilter === d) {
+        currentDestinationFilter = null;
+        card.classList.remove('active');
+      } else {
+        document.querySelectorAll('.dest-card, .dest-hero-card').forEach(c => c.classList.remove('active'));
+        currentDestinationFilter = d;
+        card.classList.add('active');
+      }
+      filterAndRender();
+      
+      // Close the dest panel if it was open
+      closeDestPanel();
     });
   }
 
@@ -238,9 +254,29 @@ document.addEventListener('DOMContentLoaded', () => {
     currentDestinationFilter = null;
     currentSearchQuery = '';
     searchInput.value = '';
-    destinationsGrid.querySelectorAll('.dest-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.dest-card, .dest-hero-card').forEach(c => c.classList.remove('active'));
     filterAndRender();
+    closeDestPanel();
   });
+
+  // --- Dest Panel ---
+  function openDestPanel() {
+    destPanel.classList.add('open');
+    panelOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeDestPanel() {
+    destPanel.classList.remove('open');
+    // only remove overlay if side panel is also closed
+    if (!sidePanel.classList.contains('open')) {
+      panelOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  btnOpenDests.addEventListener('click', openDestPanel);
+  btnCloseDestPanel.addEventListener('click', closeDestPanel);
 
   // --- Side Panel ---
   function openPanel(coop) {
@@ -292,10 +328,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closePanel() {
     sidePanel.classList.remove('open');
-    panelOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    if (!destPanel.classList.contains('open')) {
+      panelOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
   btnClosePanel.addEventListener('click', closePanel);
-  panelOverlay.addEventListener('click', closePanel);
+  panelOverlay.addEventListener('click', () => {
+    closePanel();
+    closeDestPanel();
+  });
 });

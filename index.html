@@ -50,10 +50,21 @@
     <section class="section">
       <div class="section-header">
         <h3>Destinos Populares</h3>
-        <button class="btn-text" id="btn-clear-filters">Ver todos</button>
+        <button class="btn-text" id="btn-open-dests">Otros Destinos <span class="material-symbols-rounded" style="font-size:16px;vertical-align:middle;">arrow_forward</span></button>
       </div>
-      <div class="destinations-container no-scrollbar" id="destinations-grid">
-        <!-- Rendered by JS -->
+      <div class="dest-hero-grid">
+        <div class="dest-hero-card glass-card" data-dest="Quito">
+          <img src="assets/quito.png" alt="Quito">
+          <div class="dest-hero-overlay"><h3>Quito</h3></div>
+        </div>
+        <div class="dest-hero-card glass-card" data-dest="Cuenca">
+          <img src="assets/cuenca.png" alt="Cuenca">
+          <div class="dest-hero-overlay"><h3>Cuenca</h3></div>
+        </div>
+        <div class="dest-hero-card glass-card" data-dest="Ambato">
+          <img src="assets/ambato.png" alt="Ambato">
+          <div class="dest-hero-overlay"><h3>Ambato</h3></div>
+        </div>
       </div>
     </section>
 
@@ -113,6 +124,22 @@
           </ul>
         </div>
         
+      </div>
+    </div>
+  </aside>
+
+  <!-- All Destinations Panel -->
+  <aside class="side-panel" id="dest-panel">
+    <div class="panel-header glass">
+      <button class="icon-btn" id="btn-close-dest-panel" aria-label="Cerrar panel">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+      <h3 class="panel-title">Todos los Destinos</h3>
+    </div>
+    <div class="panel-content" style="padding: 24px; padding-top: 80px;">
+      <button class="btn-text" id="btn-clear-filters" style="margin-bottom: 20px;">Mostrar todas las cooperativas</button>
+      <div class="destinations-grid" id="destinations-grid">
+        <!-- Rendered by JS -->
       </div>
     </div>
   </aside>

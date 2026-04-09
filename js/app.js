@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search-input');
   const destinationsGrid = document.getElementById('destinations-grid');
   const coopsGrid = document.getElementById('cooperativas-grid');
-  const btnClearFilters = document.getElementById('btn-clear-filters');
+  const btnClearFilters = document.getElementById('btn-clear-filters'); // inside side panel
   const noResults = document.getElementById('no-results');
   const btnOpenDests = document.getElementById('btn-open-dests');
   const paginationControls = document.getElementById('pagination-controls');
+  const filterIndicator = document.getElementById('filter-indicator');
+  const filterText = filterIndicator.querySelector('.filter-text');
+  const btnClearMainFilter = document.getElementById('btn-clear-main-filter');
   
   // Dest Panel Elements
   const destPanel = document.getElementById('dest-panel');
@@ -218,6 +221,23 @@ document.addEventListener('DOMContentLoaded', () => {
         c.destinos.some(d => d.toLowerCase().includes(q))
       );
     }
+    
+    // Status Indicator Copy
+    let msg = '';
+    if (currentDestinationFilter && currentSearchQuery) {
+      msg = `Resultados para <strong>"${currentSearchQuery}"</strong> con destino a <strong>${currentDestinationFilter}</strong>`;
+    } else if (currentDestinationFilter) {
+      msg = `Mostrando cooperativas con destino a <strong>${currentDestinationFilter}</strong>`;
+    } else if (currentSearchQuery) {
+      msg = `Resultados de búsqueda para <strong>"${currentSearchQuery}"</strong>`;
+    }
+
+    if (msg) {
+      filterText.innerHTML = msg;
+      filterIndicator.classList.remove('hidden');
+    } else {
+      filterIndicator.classList.add('hidden');
+    }
 
     renderPage(filtered, 1);
   }
@@ -298,6 +318,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.dest-card, .dest-hero-card').forEach(c => c.classList.remove('active'));
     filterAndRender();
     closeDestPanel();
+  });
+  
+  btnClearMainFilter.addEventListener('click', () => {
+    currentDestinationFilter = null;
+    currentSearchQuery = '';
+    searchInput.value = '';
+    document.querySelectorAll('.dest-card, .dest-hero-card').forEach(c => c.classList.remove('active'));
+    filterAndRender();
   });
 
   // --- Dest Panel ---

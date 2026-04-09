@@ -77,6 +77,11 @@
         <span class="material-symbols-rounded empty-icon">location_off</span>
         <p>No encontramos cooperativas para tu búsqueda.</p>
       </div>
+      <div id="filter-indicator" class="hidden" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 24px; padding: 12px 20px; border-radius: 12px; background: var(--bg-secondary); border: 1px solid var(--glass-border);">
+        <span class="filter-text" style="font-size: 1.05rem; color: var(--text-primary);"></span>
+        <button class="btn-text" id="btn-clear-main-filter" style="color: var(--text-secondary); font-weight: 500; display:flex; align-items:center; gap: 4px;"><span class="material-symbols-rounded" style="font-size:18px;">close</span>Limpiar filtros</button>
+      </div>
+
       <div class="coop-grid" id="cooperativas-grid">
         <!-- Rendered by JS -->
       </div>

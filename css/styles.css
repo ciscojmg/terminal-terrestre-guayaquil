@@ -204,7 +204,8 @@ a:hover { color: var(--accent-hover); }
   display: flex;
   overflow-x: auto;
   gap: 16px;
-  padding-bottom: 16px;
+  padding: 8px 4px 16px 4px;
+  margin-top: -8px;
   scroll-snap-type: x mandatory;
 }
 .dest-hero-grid::-webkit-scrollbar { display: none; }

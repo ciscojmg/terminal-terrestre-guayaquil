@@ -208,6 +208,19 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Close the dest panel if it was open
       closeDestPanel();
+      
+      // Scroll down directly to results if a filter was successfully applied
+      if (currentDestinationFilter) {
+        setTimeout(() => {
+          const filterIndicator = document.getElementById('filter-indicator');
+          const target = filterIndicator.classList.contains('hidden') ? document.getElementById('cooperativas-grid') : filterIndicator;
+          if (target) {
+            // subtract a little bit of pixels for the navbar height
+            const top = target.getBoundingClientRect().top + window.scrollY - 90;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }, 300); // 300ms to allow panel sliding transition to end
+      }
     });
   }
 

@@ -331,6 +331,16 @@ document.addEventListener('DOMContentLoaded', () => {
     filterAndRender();
   });
 
+  function scrollToPopular() {
+    const popularSection = document.querySelector('.dest-hero-grid');
+    if (popularSection) {
+      const top = popularSection.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
   btnClearFilters.addEventListener('click', () => {
     currentDestinationFilter = null;
     currentSearchQuery = '';
@@ -338,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.dest-card, .dest-hero-card').forEach(c => c.classList.remove('active'));
     filterAndRender();
     closeDestPanel();
+    scrollToPopular();
   });
   
   btnClearMainFilter.addEventListener('click', () => {
@@ -346,6 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.value = '';
     document.querySelectorAll('.dest-card, .dest-hero-card').forEach(c => c.classList.remove('active'));
     filterAndRender();
+    scrollToPopular();
   });
 
   // --- Dest Panel ---

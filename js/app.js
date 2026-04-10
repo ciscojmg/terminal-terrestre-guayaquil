@@ -88,6 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const panelImg = document.querySelector('.panel-banner img');
     if (panelImg) panelImg.src = getPreferredImage();
 
+    // Update popular destination heroic cards
+    document.querySelectorAll('.dest-hero-card').forEach(card => {
+      const dest = card.dataset.dest.toLowerCase();
+      const img = card.querySelector('img');
+      img.src = theme === 'dark' ? `assets/${dest}_noche.png` : `assets/${dest}.png`;
+    });
+
     localStorage.setItem('theme', theme);
   }
 

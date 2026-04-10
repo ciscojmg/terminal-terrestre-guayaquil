@@ -213,8 +213,9 @@ a:hover { color: var(--accent-hover); }
 
 .dest-hero-card {
   position: relative;
-  width: 240px;
-  height: 135px;
+  width: 340px;
+  max-width: 85vw;
+  height: 200px;
   border-radius: 12px;
   flex: 0 0 auto;
   scroll-snap-align: start;

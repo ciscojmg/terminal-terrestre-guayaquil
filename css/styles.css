@@ -201,18 +201,23 @@ a:hover { color: var(--accent-hover); }
 
 /* Popular Destinations (Hero Cards) */
 .dest-hero-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 8px 4px 16px 4px;
+  margin-top: -8px;
+  scroll-snap-type: x mandatory;
 }
 .dest-hero-grid::-webkit-scrollbar { display: none; }
 .dest-hero-grid { -ms-overflow-style: none; scrollbar-width: none; }
 
 .dest-hero-card {
   position: relative;
-  width: 100%;
+  width: 320px;
   height: 200px;
   border-radius: 12px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -504,19 +509,9 @@ a:hover { color: var(--accent-hover); }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .dest-hero-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 16px;
-    padding: 8px 4px 16px 4px;
-    margin-top: -8px;
-    scroll-snap-type: x mandatory;
-  }
   .dest-hero-card {
     width: 300px;
     max-width: 85vw;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
   }
 }
 

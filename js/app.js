@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Render ---
   function renderDestinations() {
-    const popularNames = ['quito', 'cuenca', 'ambato'];
+    const popularNames = ['quito', 'cuenca', 'ambato', 'manta'];
     const secondaryDests = uniqueDestinations.filter(d => !popularNames.includes(d.toLowerCase()));
     
     // Render secondary panel
